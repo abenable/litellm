@@ -1,0 +1,156 @@
+model_list:
+  # ============ Anthropic Claude Models ============
+
+  - model_name: claude-sonnet-4-5-20250929
+    litellm_params:
+      model: github_copilot/claude-sonnet-4.5
+      extra_headers:
+        editor-version: "vscode/1.96.0"
+        editor-plugin-version: "copilot-chat/0.26.7"
+        Copilot-Integration-Id: "vscode-chat"
+        user-agent: "GitHubCopilotChat/0.26.7"
+
+  - model_name: claude-haiku-4-5-20251001
+    litellm_params:
+      model: github_copilot/claude-haiku-4.5
+      extra_headers:
+        editor-version: "vscode/1.96.0"
+        editor-plugin-version: "copilot-chat/0.26.7"
+        Copilot-Integration-Id: "vscode-chat"
+        user-agent: "GitHubCopilotChat/0.26.7"
+
+  - model_name: claude-opus-4-5-20251101
+    litellm_params:
+      model: github_copilot/claude-opus-4.5
+      extra_headers:
+        editor-version: "vscode/1.96.0"
+        editor-plugin-version: "copilot-chat/0.26.7"
+        Copilot-Integration-Id: "vscode-chat"
+        user-agent: "GitHubCopilotChat/0.26.7"
+
+  # ============ Google Gemini Models ============
+  - model_name: gemini-2.5-pro
+    litellm_params:
+      model: github_copilot/gemini-2.5-pro
+      extra_headers:
+        editor-version: "vscode/1.96.0"
+        editor-plugin-version: "copilot-chat/0.26.7"
+        Copilot-Integration-Id: "vscode-chat"
+        user-agent: "GitHubCopilotChat/0.26.7"
+
+  - model_name: gemini-3-pro
+    litellm_params:
+      model: github_copilot/gemini-3-pro
+      extra_headers:
+        editor-version: "vscode/1.96.0"
+        editor-plugin-version: "copilot-chat/0.26.7"
+        Copilot-Integration-Id: "vscode-chat"
+        user-agent: "GitHubCopilotChat/0.26.7"
+
+  - model_name: gemini-3-flash
+    litellm_params:
+      model: github_copilot/gemini-3-flash
+      extra_headers:
+        editor-version: "vscode/1.96.0"
+        editor-plugin-version: "copilot-chat/0.26.7"
+        Copilot-Integration-Id: "vscode-chat"
+        user-agent: "GitHubCopilotChat/0.26.7"
+
+  # ============ OpenAI GPT Models ============
+  - model_name: gpt-4.1
+    litellm_params:
+      model: github_copilot/gpt-4.1
+      extra_headers:
+        editor-version: "vscode/1.96.0"
+        editor-plugin-version: "copilot-chat/0.26.7"
+        Copilot-Integration-Id: "vscode-chat"
+        user-agent: "GitHubCopilotChat/0.26.7"
+
+  - model_name: gpt-4o
+    litellm_params:
+      model: github_copilot/gpt-4o
+      extra_headers:
+        editor-version: "vscode/1.96.0"
+        editor-plugin-version: "copilot-chat/0.26.7"
+        Copilot-Integration-Id: "vscode-chat"
+        user-agent: "GitHubCopilotChat/0.26.7"
+
+  - model_name: gpt-5
+    litellm_params:
+      model: github_copilot/gpt-5
+      extra_headers:
+        editor-version: "vscode/1.96.0"
+        editor-plugin-version: "copilot-chat/0.26.7"
+        Copilot-Integration-Id: "vscode-chat"
+        user-agent: "GitHubCopilotChat/0.26.7"
+
+  - model_name: gpt-5-mini
+    litellm_params:
+      model: github_copilot/gpt-5-mini
+      extra_headers:
+        editor-version: "vscode/1.96.0"
+        editor-plugin-version: "copilot-chat/0.26.7"
+        Copilot-Integration-Id: "vscode-chat"
+        user-agent: "GitHubCopilotChat/0.26.7"
+
+  - model_name: gpt-5.1
+    litellm_params:
+      model: github_copilot/gpt-5.1
+      extra_headers:
+        editor-version: "vscode/1.96.0"
+        editor-plugin-version: "copilot-chat/0.26.7"
+        Copilot-Integration-Id: "vscode-chat"
+        user-agent: "GitHubCopilotChat/0.26.7"
+
+  - model_name: gpt-5.2
+    litellm_params:
+      model: github_copilot/gpt-5.2
+      extra_headers:
+        editor-version: "vscode/1.96.0"
+        editor-plugin-version: "copilot-chat/0.26.7"
+        Copilot-Integration-Id: "vscode-chat"
+        user-agent: "GitHubCopilotChat/0.26.7"
+
+  - model_name: gpt-5.2-codex
+    litellm_params:
+      model: github_copilot/gpt-5.2-codex
+      extra_headers:
+        editor-version: "vscode/1.96.0"
+        editor-plugin-version: "copilot-chat/0.26.7"
+        Copilot-Integration-Id: "vscode-chat"
+        user-agent: "GitHubCopilotChat/0.26.7"
+
+  # ============ xAI Grok ============
+  - model_name: grok-code-fast-1
+    litellm_params:
+      model: github_copilot/grok-code-fast-1
+      extra_headers:
+        editor-version: "vscode/1.96.0"
+        editor-plugin-version: "copilot-chat/0.26.7"
+        Copilot-Integration-Id: "vscode-chat"
+        user-agent: "GitHubCopilotChat/0.26.7"
+
+  # ============ Other Models ============
+  - model_name: raptor-mini
+    litellm_params:
+      model: github_copilot/raptor-mini
+      extra_headers:
+        editor-version: "vscode/1.96.0"
+        editor-plugin-version: "copilot-chat/0.26.7"
+        Copilot-Integration-Id: "vscode-chat"
+        user-agent: "GitHubCopilotChat/0.26.7"
+
+  # ============ Aliases for Claude Code ============
+  - model_name: claude-sonnet
+    litellm_params:
+      model: github_copilot/claude-sonnet-4.5
+      extra_headers:
+        editor-version: "vscode/1.96.0"
+        editor-plugin-version: "copilot-chat/0.26.7"
+        Copilot-Integration-Id: "vscode-chat"
+        user-agent: "GitHubCopilotChat/0.26.7"
+
+litellm_settings:
+  master_key: os.environ/LITELLM_MASTER_KEY
+  database_url: "postgresql://llmproxy:dbpassword9090@db:5432/litellm"
+  drop_params: true # Drop unsupported params gracefully
