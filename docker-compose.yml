@@ -1,8 +1,11 @@
 services:
   litellm:
     image: docker.litellm.ai/berriai/litellm:main-stable
-    command: >
-      sh -c 'printf "%s\n" "$$LITELLM_CONFIG_CONTENT" > /tmp/litellm-config.yaml && litellm --config=/tmp/litellm-config.yaml'
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        printf '%s\n' "$LITELLM_CONFIG_CONTENT" > /tmp/litellm-config.yaml
+        exec litellm --config=/tmp/litellm-config.yaml
     ports:
       - "4000:4000"
     environment:
