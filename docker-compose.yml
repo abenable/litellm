@@ -1,9 +1,5 @@
 services:
   litellm:
-    build:
-      context: .
-      args:
-        target: runtime
     image: docker.litellm.ai/berriai/litellm:main-stable
     #########################################
     ## Uncomment these lines to start proxy with a config.yaml file ##
@@ -15,7 +11,6 @@ services:
     ports:
       - "4000:4000" # Map the container port to the host, change the host port if necessary
     environment:
-      DATABASE_URL: "postgresql://postgres:lurex4098@34.93.234.147:5432/litellm"
       # Optional: route read-only queries (find_*, count, group_by, query_raw/_first)
       # to a separate reader endpoint, e.g. an Aurora reader. Leave unset for
       # single-DB deployments. With IAM_TOKEN_DB_AUTH enabled, the reader URL
