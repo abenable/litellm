@@ -3,6 +3,7 @@ services:
     image: docker.litellm.ai/berriai/litellm:main-stable
     volumes:
       - ./config.yaml:/app/config.yaml
+      - ./gen-lang-client-0134907437-5a8ab20eb249.json:/app/vertex-sa.json:ro
     command:
       - "--config=/app/config.yaml"
       - "--port=4000"

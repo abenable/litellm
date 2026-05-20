@@ -1,4 +1,5 @@
 model_list:
+  # Google AI Studio (Gemini API) - original
   - model_name: gemini-3.1-pro-preview
     litellm_params:
       model: gemini/gemini-3.1-pro-preview
@@ -14,6 +15,22 @@ model_list:
       model: gemini/gemini-3.1-flash-lite
       api_key: os.environ/GEMINI_API_KEY
 
+  # Vertex AI (Agent Studio) - alternatives
+  - model_name: gemini-3.1-pro-vertex
+    litellm_params:
+      model: vertex_ai/gemini-3.1-pro-preview
+      vertex_location: "global"
+
+  - model_name: gemini-3.5-flash-vertex
+    litellm_params:
+      model: vertex_ai/gemini-3.5-flash
+      vertex_location: "global"
+
+  - model_name: gemini-3.1-flash-lite-vertex
+    litellm_params:
+      model: vertex_ai/gemini-3.1-flash-lite
+      vertex_location: "global"
+
   - model_name: kimi-k2.6
     litellm_params:
       model: openai/@cf/moonshotai/kimi-k2.6
@@ -22,6 +39,10 @@ model_list:
 
 litellm_settings:
   drop_params: true
+  vertex_project: "gen-lang-client-0134907437"
+
+  # Vertex AI location for all Vertex models
+  # Set per model above or remove to use default
 
 general_settings:
   master_key: os.environ/LITELLM_MASTER_KEY
