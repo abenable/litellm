@@ -38,25 +38,8 @@ model_list:
       api_key: os.environ/CLOUDFLARE_API_KEY
       api_base: https://api.cloudflare.com/client/v4/accounts/7db8ddd2e4eb60dc49a3c644f70e2908/ai/v1
     model_info:
-      # Pricing mapped to Anthropic Claude Haiku 4.5
-      # Haiku 4.5: $1 / 1M input tokens, $5 / 1M output tokens
-      base_model: claude-haiku-4-5
-      input_cost_per_token: 0.000001
-      output_cost_per_token: 0.000005
-
-  # Anthropic model alias (for Claude Code compatibility)
-  # Appears as claude-sonnet-4-6 but routes to Kimi K2.6
-  - model_name: claude-sonnet-4-6
-    litellm_params:
-      model: openai/@cf/moonshotai/kimi-k2.6
-      api_key: os.environ/CLOUDFLARE_API_KEY
-      api_base: https://api.cloudflare.com/client/v4/accounts/7db8ddd2e4eb60dc49a3c644f70e2908/ai/v1
-    model_info:
-      # Pricing mapped to Anthropic Claude Sonnet 4.6
-      # Sonnet 4.6: $3 / 1M input tokens, $15 / 1M output tokens
-      base_model: claude-sonnet-4-6
       input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
+      output_cost_per_token: 0.00001
 
 litellm_settings:
   drop_params: true
