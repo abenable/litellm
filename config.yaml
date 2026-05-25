@@ -1,38 +1,6 @@
 model_list:
-  # Google AI Studio (Gemini API) - original
-  - model_name: gemini-3.1-pro-preview
-    litellm_params:
-      model: gemini/gemini-3.1-pro-preview
-      api_key: os.environ/GEMINI_API_KEY
-
-  - model_name: gemini-3.5-flash
-    litellm_params:
-      model: gemini/gemini-3.5-flash
-      api_key: os.environ/GEMINI_API_KEY
-
-  - model_name: gemini-3.1-flash-lite
-    litellm_params:
-      model: gemini/gemini-3.1-flash-lite
-      api_key: os.environ/GEMINI_API_KEY
-
-  # Vertex AI (Agent Studio) - alternatives
-  - model_name: gemini-3.1-pro-vertex
-    litellm_params:
-      model: vertex_ai/gemini-3.1-pro-preview
-      vertex_location: "global"
-
-  - model_name: gemini-3.5-flash-vertex
-    litellm_params:
-      model: vertex_ai/gemini-3.5-flash
-      vertex_location: "global"
-
-  - model_name: gemini-3.1-flash-lite-vertex
-    litellm_params:
-      model: vertex_ai/gemini-3.1-flash-lite
-      vertex_location: "global"
-
   # Kimi K2.6 via Cloudflare Workers AI (OpenAI-compatible endpoint)
-  - model_name: kimi-k2.6
+  - model_name: Mythos
     litellm_params:
       model: openai/@cf/moonshotai/kimi-k2.6
       api_key: os.environ/CLOUDFLARE_API_KEY
@@ -41,7 +9,32 @@ model_list:
       input_cost_per_token: 0.000003
       output_cost_per_token: 0.00001
 
+  - model_name: Whisper
+    litellm_params:
+      model: openai/@cf/openai/whisper-large-v3-turbo
+      api_key: os.environ/CLOUDFLARE_API_KEY
+      api_base: https://api.cloudflare.com/client/v4/accounts/7db8ddd2e4eb60dc49a3c644f70e2908/ai/v1
+
+  - model_name: Qwen
+    litellm_params:
+      model: openai/@cf/qwen/qwq-32b
+      api_key: os.environ/CLOUDFLARE_API_KEY
+      api_base: https://api.cloudflare.com/client/v4/accounts/7db8ddd2e4eb60dc49a3c644f70e2908/ai/v1
+
+  - model_name: Nemotron
+    litellm_params:
+      model: openai/@cf/nvidia/nemotron-3-120b-a12b
+      api_key: os.environ/CLOUDFLARE_API_KEY
+      api_base: https://api.cloudflare.com/client/v4/accounts/7db8ddd2e4eb60dc49a3c644f70e2908/ai/v1
+
+  - model_name: glm-4.7-flash
+    litellm_params:
+      model: openai/@cf/zai-org/glm-4.7-flash
+      api_key: os.environ/CLOUDFLARE_API_KEY
+      api_base: https://api.cloudflare.com/client/v4/accounts/7db8ddd2e4eb60dc49a3c644f70e2908/ai/v1
+
 litellm_settings:
+  callbacks: ["smtp_email"]
   drop_params: true
   vertex_project: "gen-lang-client-0134907437"
 
@@ -51,3 +44,4 @@ litellm_settings:
 general_settings:
   master_key: os.environ/LITELLM_MASTER_KEY
   database_url: os.environ/DATABASE_URL
+  alerts: ["email"]
