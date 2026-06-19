@@ -1,9 +1,8 @@
 services:
   litellm:
-    image: docker.litellm.ai/berriai/litellm:main-stable
-    volumes:
-      - ./config.yaml:/app/config.yaml
-      - ./gen-lang-client-0134907437-5a8ab20eb249.json:/app/vertex-sa.json:ro
+    build:
+      context: .
+      dockerfile: Dockerfile
     command:
       - "--config=/app/config.yaml"
       - "--port=4000"
@@ -11,8 +10,9 @@ services:
       - "4000:4000"
     environment:
       STORE_MODEL_IN_DB: "True"
-    env_file:
-      - .env
+      LITELLM_MASTER_KEY: "${LITELLM_MASTER_KEY:?Set LITELLM_MASTER_KEY in Coolify}"
+      DATABASE_URL: "${DATABASE_URL:?Set DATABASE_URL in Coolify}"
+      CLOUDFLARE_API_KEY: "${CLOUDFLARE_API_KEY:?Set CLOUDFLARE_API_KEY in Coolify}"
     healthcheck:
       test:
         - CMD-SHELL

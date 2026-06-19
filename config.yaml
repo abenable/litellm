@@ -9,37 +9,52 @@ model_list:
       input_cost_per_token: 0.000003
       output_cost_per_token: 0.00001
 
-  - model_name: Whisper
+  # Kimi K2.7 Code via Cloudflare Workers AI (OpenAI-compatible endpoint)
+  - model_name: Code
     litellm_params:
-      model: openai/@cf/openai/whisper-large-v3-turbo
+      model: openai/@cf/moonshotai/kimi-k2.7-code
       api_key: os.environ/CLOUDFLARE_API_KEY
       api_base: https://api.cloudflare.com/client/v4/accounts/7db8ddd2e4eb60dc49a3c644f70e2908/ai/v1
-
-  - model_name: Qwen
-    litellm_params:
-      model: openai/@cf/qwen/qwq-32b
-      api_key: os.environ/CLOUDFLARE_API_KEY
-      api_base: https://api.cloudflare.com/client/v4/accounts/7db8ddd2e4eb60dc49a3c644f70e2908/ai/v1
+    model_info:
+      input_cost_per_token: 0.000003
+      output_cost_per_token: 0.00001
 
   - model_name: Nemotron
     litellm_params:
       model: openai/@cf/nvidia/nemotron-3-120b-a12b
       api_key: os.environ/CLOUDFLARE_API_KEY
       api_base: https://api.cloudflare.com/client/v4/accounts/7db8ddd2e4eb60dc49a3c644f70e2908/ai/v1
+    model_info:
+      input_cost_per_token: 0.000003
+      output_cost_per_token: 0.00001
 
-  - model_name: glm-4.7-flash
+  # GLM 5.2 via Cloudflare Workers AI (OpenAI-compatible endpoint)
+  - model_name: GLM-5.2
     litellm_params:
-      model: openai/@cf/zai-org/glm-4.7-flash
+      model: openai/@cf/zai-org/glm-5.2
+      api_key: os.environ/CLOUDFLARE_API_KEY
+      api_base: https://api.cloudflare.com/client/v4/accounts/7db8ddd2e4eb60dc49a3c644f70e2908/ai/v1
+    model_info:
+      input_cost_per_token: 0.000003
+      output_cost_per_token: 0.00001
+
+  # Gemma 4 via Cloudflare Workers AI (OpenAI-compatible endpoint)
+  - model_name: Gemma-4-26b
+    litellm_params:
+      model: openai/@cf/google/gemma-4-26b-a4b-it
+      api_key: os.environ/CLOUDFLARE_API_KEY
+      api_base: https://api.cloudflare.com/client/v4/accounts/7db8ddd2e4eb60dc49a3c644f70e2908/ai/v1
+
+  # BGE-M3 text embeddings via Cloudflare Workers AI
+  - model_name: BGE-M3
+    litellm_params:
+      model: openai/@cf/baai/bge-m3
       api_key: os.environ/CLOUDFLARE_API_KEY
       api_base: https://api.cloudflare.com/client/v4/accounts/7db8ddd2e4eb60dc49a3c644f70e2908/ai/v1
 
 litellm_settings:
   callbacks: ["smtp_email"]
   drop_params: true
-  vertex_project: "gen-lang-client-0134907437"
-
-  # Vertex AI location for all Vertex models
-  # Set per model above or remove to use default
 
 general_settings:
   master_key: os.environ/LITELLM_MASTER_KEY
