@@ -3,16 +3,18 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command:
-      - "--config=/app/config.yaml"
-      - "--port=4000"
     ports:
       - "4000:4000"
     environment:
       STORE_MODEL_IN_DB: "True"
+      DATABASE_URL: "postgresql://llmproxy:dbpassword9090@db:5432/litellm"
       LITELLM_MASTER_KEY: "${LITELLM_MASTER_KEY:?Set LITELLM_MASTER_KEY in Coolify}"
-      DATABASE_URL: "${DATABASE_URL:?Set DATABASE_URL in Coolify}"
+      LITELLM_SALT_KEY: "${LITELLM_SALT_KEY:?Set LITELLM_SALT_KEY in Coolify}"
       CLOUDFLARE_API_KEY: "${CLOUDFLARE_API_KEY:?Set CLOUDFLARE_API_KEY in Coolify}"
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
     healthcheck:
       test:
         - CMD-SHELL
@@ -20,4 +22,28 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 40s
+      start_period: 120s
+
+  db:
+    image: postgres:16
+    container_name: litellm_db
+    restart: always
+    environment:
+      POSTGRES_DB: litellm
+      POSTGRES_USER: llmproxy
+      POSTGRES_PASSWORD: dbpassword9090
+    # Not published to the host; litellm reaches it as `db:5432` on the internal network.
+    # Uncomment the next two lines if you need host access for inspection.
+    # ports:
+    #   - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d litellm -U llmproxy"]
+      interval: 1s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  postgres_data:
+    name: litellm_postgres_data

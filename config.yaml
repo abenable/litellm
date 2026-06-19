@@ -53,10 +53,8 @@ model_list:
       api_base: https://api.cloudflare.com/client/v4/accounts/7db8ddd2e4eb60dc49a3c644f70e2908/ai/v1
 
 litellm_settings:
-  callbacks: ["smtp_email"]
   drop_params: true
 
 general_settings:
   master_key: os.environ/LITELLM_MASTER_KEY
   database_url: os.environ/DATABASE_URL
-  alerts: ["email"]
