@@ -52,7 +52,7 @@ model_list:
 
   - model_name: claude-haiku-4-5
     litellm_params:
-      model: openai/@cf/moonshotai/kimi-k2.7-code
+      model: openai/@cf/google/gemma-4-26b-a4b-it
       api_key: os.environ/CLOUDFLARE_API_KEY
       api_base: https://api.cloudflare.com/client/v4/accounts/7db8ddd2e4eb60dc49a3c644f70e2908/ai/v1
       extra_headers:
