@@ -1,6 +1,6 @@
 model_list:
   # Kimi K2.6 via Cloudflare Workers AI (OpenAI-compatible endpoint)
-  - model_name: Mythos
+  - model_name: Kimi-K2.6
     litellm_params:
       model: openai/@cf/moonshotai/kimi-k2.6
       api_key: os.environ/CLOUDFLARE_API_KEY
@@ -10,7 +10,7 @@ model_list:
       output_cost_per_token: 0.00001
 
   # Kimi K2.7 Code via Cloudflare Workers AI (OpenAI-compatible endpoint)
-  - model_name: Code
+  - model_name: Kimi-K2.7-Code
     litellm_params:
       model: openai/@cf/moonshotai/kimi-k2.7-code
       api_key: os.environ/CLOUDFLARE_API_KEY
@@ -19,6 +19,7 @@ model_list:
       input_cost_per_token: 0.000003
       output_cost_per_token: 0.00001
 
+  # Nemotron via Cloudflare Workers AI (OpenAI-compatible endpoint)
   - model_name: Nemotron
     litellm_params:
       model: openai/@cf/nvidia/nemotron-3-120b-a12b
@@ -50,20 +51,8 @@ model_list:
       input_cost_per_token: 0.000003
       output_cost_per_token: 0.00001
 
-  - model_name: claude-haiku-4-5
-    litellm_params:
-      model: openai/@cf/google/gemma-4-26b-a4b-it
-      api_key: os.environ/CLOUDFLARE_API_KEY
-      api_base: https://api.cloudflare.com/client/v4/accounts/7db8ddd2e4eb60dc49a3c644f70e2908/ai/v1
-      extra_headers:
-        cf-aig-gateway-id: default
-    model_info:
-      mode: chat
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.00001
-
   # Gemma 4 via Cloudflare Workers AI (OpenAI-compatible endpoint)
-  - model_name: Gemma-4-26b
+  - model_name: Gemma-4
     litellm_params:
       model: openai/@cf/google/gemma-4-26b-a4b-it
       api_key: os.environ/CLOUDFLARE_API_KEY
