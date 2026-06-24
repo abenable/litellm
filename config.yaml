@@ -46,6 +46,7 @@ model_list:
       extra_headers:
         cf-aig-gateway-id: default
     model_info:
+      mode: chat
       input_cost_per_token: 0.000003
       output_cost_per_token: 0.00001
 
@@ -57,6 +58,7 @@ model_list:
       extra_headers:
         cf-aig-gateway-id: default
     model_info:
+      mode: chat
       input_cost_per_token: 0.000003
       output_cost_per_token: 0.00001
 
