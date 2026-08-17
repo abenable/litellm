@@ -11,6 +11,7 @@ services:
       LITELLM_MASTER_KEY: "${LITELLM_MASTER_KEY:?Set LITELLM_MASTER_KEY in Coolify}"
       LITELLM_SALT_KEY: "${LITELLM_SALT_KEY:?Set LITELLM_SALT_KEY in Coolify}"
       CLOUDFLARE_API_KEY: "${CLOUDFLARE_API_KEY:?Set CLOUDFLARE_API_KEY in Coolify}"
+      MOONSHOT_API_KEY: "${MOONSHOT_API_KEY:?Set MOONSHOT_API_KEY in Coolify}"
     depends_on:
       db:
         condition: service_healthy

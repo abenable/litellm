@@ -89,6 +89,16 @@ model_list:
       api_key: os.environ/CLOUDFLARE_API_KEY
       api_base: https://api.cloudflare.com/client/v4/accounts/7db8ddd2e4eb60dc49a3c644f70e2908/ai/v1
 
+  # Kimi K3 direct via Moonshot AI (OpenAI-compatible endpoint)
+  # Docs: https://platform.moonshot.ai/docs
+  - model_name: Kimi-K3
+    litellm_params:
+      model: openai/kimi-k3
+      api_key: os.environ/MOONSHOT_API_KEY
+      api_base: https://api.moonshot.ai/v1
+    model_info:
+      mode: chat
+
 litellm_settings:
   drop_params: true
 
