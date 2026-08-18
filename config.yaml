@@ -99,6 +99,18 @@ model_list:
     model_info:
       mode: chat
 
+  # Qwen 3.8 27B via Cloudflare Workers AI (OpenAI-compatible endpoint)
+  # Docs: https://developers.cloudflare.com/workers-ai/models/qwen3.8-27b/
+  - model_name: Qwen-3.8-27B
+    litellm_params:
+      model: openai/@cf/qwen/qwen3.8-27b
+      api_key: os.environ/CLOUDFLARE_API_KEY
+      api_base: https://api.cloudflare.com/client/v4/accounts/7db8ddd2e4eb60dc49a3c644f70e2908/ai/v1
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.00000045
+      output_cost_per_token: 0.0000032
+
 litellm_settings:
   drop_params: true
 
