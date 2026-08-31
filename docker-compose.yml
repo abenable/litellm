@@ -8,12 +8,16 @@ services:
     environment:
       STORE_MODEL_IN_DB: "True"
       DATABASE_URL: "postgresql://llmproxy:dbpassword9090@db:5432/litellm"
+      REDIS_HOST: "redis"
+      REDIS_PORT: "6379"
       LITELLM_MASTER_KEY: "${LITELLM_MASTER_KEY:?Set LITELLM_MASTER_KEY in Coolify}"
       LITELLM_SALT_KEY: "${LITELLM_SALT_KEY:?Set LITELLM_SALT_KEY in Coolify}"
       CLOUDFLARE_API_KEY: "${CLOUDFLARE_API_KEY:?Set CLOUDFLARE_API_KEY in Coolify}"
       MOONSHOT_API_KEY: "${MOONSHOT_API_KEY:?Set MOONSHOT_API_KEY in Coolify}"
     depends_on:
       db:
+        condition: service_healthy
+      redis:
         condition: service_healthy
     restart: unless-stopped
     healthcheck:
@@ -45,6 +49,22 @@ services:
       timeout: 5s
       retries: 10
 
+  redis:
+    image: redis:7-alpine
+    container_name: litellm_redis
+    restart: always
+    command: ["redis-server", "--appendonly", "yes"]
+    # Not published to the host; litellm reaches it as `redis:6379` on the internal network.
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
 volumes:
   postgres_data:
     name: litellm_postgres_data
+  redis_data:
+    name: litellm_redis_data
