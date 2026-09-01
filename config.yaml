@@ -84,6 +84,9 @@ model_list:
 
 litellm_settings:
   drop_params: true
+  # Connect to the Redis service defined in docker-compose.yml (REDIS_HOST/REDIS_PORT env vars).
+  # This initializes the Redis cache client; without it the dashboard reports Redis as not configured.
+  cache: true
 
 general_settings:
   master_key: os.environ/LITELLM_MASTER_KEY
