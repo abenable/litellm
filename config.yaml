@@ -22,6 +22,16 @@ model_list:
   # GLM 5.3 via Cloudflare Workers AI (OpenAI-compatible endpoint)
   - model_name: GLM-5.3
     litellm_params:
+      model: openai/@cf/zai-org/glm-5.3
+      api_key: os.environ/CLOUDFLARE_API_KEY
+      api_base: https://api.cloudflare.com/client/v4/accounts/7db8ddd2e4eb60dc49a3c644f70e2908/ai/v1
+    model_info:
+      input_cost_per_token: 0.000003
+      output_cost_per_token: 0.00001
+
+  # GLM 5.3 via Cloudflare Workers AI (OpenAI-compatible endpoint)
+  - model_name: GLM-5.3-Flash
+    litellm_params:
       model: openai/@cf/zai-org/glm-5.3-flash
       api_key: os.environ/CLOUDFLARE_API_KEY
       api_base: https://api.cloudflare.com/client/v4/accounts/7db8ddd2e4eb60dc49a3c644f70e2908/ai/v1
